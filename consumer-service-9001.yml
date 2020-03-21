@@ -1,0 +1,29 @@
+server:
+  port: 9001
+
+eureka:
+  client:
+    registerWithEureka: false # 实例是否在eureka服务器上注册自己的信息以供其他服务发现（默认为true）
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka/ #往该地址注册自己的信息到注册中心
+  instance:
+    instance-id: provider-service-8001 # 自定义服务名称信息
+    prefer-ip-address: true # 访问路径可以显示ip信息
+
+info:
+  app.name: consumer-service-9001
+  company.name: www.bdqn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+spring:
+  application:
+    name: consumer-service-9001  # 指明微服务应用名，这个很重要，这在以后的服务与服务之间相互调用一般都是根据这个name。
+
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    cache: false
+    mode: HTML5
